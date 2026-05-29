@@ -1,0 +1,1019 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vagas de Emprego | Elo+ Pinda</title>
+    <link rel="icon" href="images/logo.png" type="image/png" />
+
+    <!-- Bootstrap 5 CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Sans+3:wght@400;500;600&display=swap"
+        rel="stylesheet" />
+
+    <link rel="stylesheet" href="styles/index.css">
+    <link rel="stylesheet" href="styles/vagas.css" />
+</head>
+
+<body>
+
+    <!-- ══════════════════════════
+     NAVBAR
+══════════════════════════ -->
+    <nav class="navbar navbar-expand-lg navbar-custom sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <div class="navbar-brand-wrapper">
+                    <img class="brand-logo" src="images/logo.png" alt="Logo Elo+ Pinda" />
+                    <div class="brand-text">
+                        <span class="brand-title">Elo+ Pinda</span>
+                        <span class="brand-subtitle">Prefeitura de Pindamonhangaba</span>
+                    </div>
+                </div>
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain"
+                aria-label="Abrir menu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarMain">
+                <ul class="navbar-nav ms-auto align-items-center gap-1">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Início</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="cursos.html">
+                            <i class="bi bi-mortarboard me-1"></i>Cursos
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="vagas.html">
+                            <i class="bi bi-briefcase me-1"></i>Vagas
+                        </a>
+                    </li>
+                    <li class="nav-item ms-2">
+                        <a class="nav-link btn-nav-cta" href="logar.html">
+                            <i class="bi bi-box-arrow-in-right me-1"></i>Entrar no Programa
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- ══════════════════════════
+     PAGE HERO
+══════════════════════════ -->
+    <section class="page-hero">
+        <div class="container page-hero-content">
+            <span class="page-badge"><i class="bi bi-briefcase-fill me-1"></i> Empresas Parceiras</span>
+            <h1 class="page-title">
+                Vagas de emprego para<br>quem tem <span>experiência de vida</span>
+            </h1>
+            <p class="page-desc">
+                Empresas da região de Pindamonhangaba que valorizam profissionais com mais de 40 anos.
+                Todas as vagas são selecionadas e validadas pelo programa.
+            </p>
+        </div>
+    </section>
+
+
+    <!-- ══════════════════════════
+     BARRA DE BUSCA + FILTROS
+══════════════════════════ -->
+    <div class="search-section">
+        <div class="container">
+            <div class="search-wrapper">
+                <!-- Campo de busca -->
+                <div class="search-input-group">
+                    <i class="bi bi-search"></i>
+                    <input type="text" id="searchInput" placeholder="Buscar por cargo, empresa ou palavra-chave..."
+                        autocomplete="off" />
+                </div>
+
+                <!-- Filtro por área -->
+                <select class="filter-select" id="areaSelect">
+                    <option value="">Todas as áreas</option>
+                    <option value="industria">Indústria</option>
+                    <option value="comercio">Comércio</option>
+                    <option value="saude">Saúde</option>
+                    <option value="servicos">Serviços</option>
+                    <option value="logistica">Logística</option>
+                    <option value="admin">Administrativo</option>
+                </select>
+
+                <!-- Botão de filtros extras -->
+                <button class="btn-filter-toggle" id="filterToggle" onclick="toggleFilter()">
+                    <i class="bi bi-sliders2"></i>
+                    Filtros
+                    <span class="badge-count" id="filterBadge" style="display:none">0</span>
+                </button>
+            </div>
+
+            <!-- Painel de filtros extras -->
+            <div class="filter-panel" id="filterPanel">
+                <div class="row g-3">
+                    <div class="col-md-4">
+                        <div class="filter-label">Tipo de contrato</div>
+                        <div class="filter-chip-group" id="tipoFilter">
+                            <span class="filter-chip" data-filter="tipo" data-value="clt"
+                                onclick="toggleChip(this)">CLT</span>
+                            <span class="filter-chip" data-filter="tipo" data-value="parcial"
+                                onclick="toggleChip(this)">Meio período</span>
+                            <span class="filter-chip" data-filter="tipo" data-value="pcd"
+                                onclick="toggleChip(this)">PcD</span>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="filter-label">Escolaridade</div>
+                        <div class="filter-chip-group" id="escFilter">
+                            <span class="filter-chip" data-filter="esc" data-value="fundamental"
+                                onclick="toggleChip(this)">Fund. completo</span>
+                            <span class="filter-chip" data-filter="esc" data-value="medio"
+                                onclick="toggleChip(this)">Médio completo</span>
+                            <span class="filter-chip" data-filter="esc" data-value="superior"
+                                onclick="toggleChip(this)">Superior</span>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="filter-label">Novidades</div>
+                        <div class="filter-chip-group">
+                            <span class="filter-chip" data-filter="novo" data-value="novo"
+                                onclick="toggleChip(this)">Somente novas vagas</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contador de resultados -->
+            <div class="results-info" id="resultsInfo">
+                Mostrando <strong id="resultsCount">17</strong> vagas de empresas parceiras em Pindamonhangaba e região
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ══════════════════════════
+     VAGAS
+══════════════════════════ -->
+    <main class="vagas-section" id="vagas">
+        <div class="container">
+
+            <!-- Mensagem de nenhum resultado -->
+            <div class="no-results" id="noResults">
+                <i class="bi bi-search"></i>
+                <h5>Nenhuma vaga encontrada</h5>
+                <p class="text-muted">Tente outros termos ou remova os filtros aplicados.</p>
+            </div>
+
+
+            <!-- ══ CATEGORIA: INDÚSTRIA ══ -->
+            <div class="categoria-bloco" data-categoria="industria">
+                <div class="categoria-header">
+                    <div class="categoria-icon" style="background:#e8f0fb; color: var(--Pinda-azul);">
+                        <i class="bi bi-gear-fill"></i>
+                    </div>
+                    <div>
+                        <h2 class="categoria-titulo">Indústria</h2>
+                        <p class="categoria-subtitulo">Fábricas e grandes indústrias da região</p>
+                    </div>
+                    <span class="categoria-count">5 vagas</span>
+                </div>
+
+                <div class="row g-3">
+
+                    <!-- Vaga 1 -->
+                    <div class="col-md-6 col-lg-4 vaga-item" data-texto="Novelis Assistente Almoxarifado industria"
+                        data-categoria="industria" data-tipo="clt" data-esc="medio" data-novo="true">
+                        <div class="vaga-card cat-industria">
+                            <span class="badge-novo">Nova</span>
+                            <div class="vaga-empresa-row">
+                                <div class="empresa-logo">🏭</div>
+                                <div>
+                                    <div class="empresa-nome">Novelis do Brasil</div>
+                                    <div class="empresa-parceira"><i class="bi bi-patch-check-fill me-1"></i>Parceira
+                                        oficial</div>
+                                </div>
+                            </div>
+                            <div class="vaga-titulo">Assistente de Almoxarifado</div>
+                            <div class="vaga-desc">
+                                Controle de entrada e saída de materiais, organização de estoque e atendimento interno.
+                                Treinamento oferecido pela empresa.
+                            </div>
+                            <div class="vaga-tags">
+                                <span class="vaga-tag">CLT</span>
+                                <span class="vaga-tag">Ensino médio</span>
+                                <span class="vaga-tag destaque">Benefícios completos</span>
+                            </div>
+                            <div class="vaga-footer">
+                                <span class="vaga-local"><i class="bi bi-geo-alt"></i> Pindamonhangaba</span>
+                                <a href="#"
+                                    class="btn-candidatar"><i class="bi bi-send"></i> Candidatar</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Vaga 2 -->
+                    <div class="col-md-6 col-lg-4 vaga-item" data-texto="Gerdau Porteiro Vigilância Industria"
+                        data-categoria="industria" data-tipo="clt" data-esc="medio" data-novo="false">
+                        <div class="vaga-card cat-industria">
+                            <div class="vaga-empresa-row">
+                                <div class="empresa-logo">⚙️</div>
+                                <div>
+                                    <div class="empresa-nome">Gerdau Açominas</div>
+                                    <div class="empresa-parceira"><i class="bi bi-patch-check-fill me-1"></i>Parceira
+                                        oficial</div>
+                                </div>
+                            </div>
+                            <div class="vaga-titulo">Porteiro Industrial</div>
+                            <div class="vaga-desc">
+                                Controle de acesso de pessoas e veículos, recebimento de visitantes e registro de
+                                entradas e saídas.
+                            </div>
+                            <div class="vaga-tags">
+                                <span class="vaga-tag">CLT</span>
+                                <span class="vaga-tag">Ensino médio</span>
+                                <span class="vaga-tag destaque">Vale-refeição</span>
+                            </div>
+                            <div class="vaga-footer">
+                                <span class="vaga-local"><i class="bi bi-geo-alt"></i> Pindamonhangaba</span>
+                                <a href="#"
+                                    class="btn-candidatar"><i class="bi bi-send"></i> Candidatar</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Vaga 3 -->
+                    <div class="col-md-6 col-lg-4 vaga-item"
+                        data-texto="Tenaris Confab auxiliar serviços gerais limpeza industria"
+                        data-categoria="industria" data-tipo="clt" data-esc="fundamental" data-novo="true">
+                        <div class="vaga-card cat-industria">
+                            <span class="badge-novo">Nova</span>
+                            <div class="vaga-empresa-row">
+                                <div class="empresa-logo">🔩</div>
+                                <div>
+                                    <div class="empresa-nome">Tenaris Confab</div>
+                                    <div class="empresa-parceira"><i class="bi bi-patch-check-fill me-1"></i>Parceira
+                                        oficial</div>
+                                </div>
+                            </div>
+                            <div class="vaga-titulo">Auxiliar de Serviços Gerais</div>
+                            <div class="vaga-desc">
+                                Limpeza e conservação de áreas internas da fábrica. Escala de segunda à sexta, sem
+                                trabalho pesado.
+                            </div>
+                            <div class="vaga-tags">
+                                <span class="vaga-tag">CLT</span>
+                                <span class="vaga-tag">Fund. completo</span>
+                                <span class="vaga-tag">Meio período</span>
+                            </div>
+                            <div class="vaga-footer">
+                                <span class="vaga-local"><i class="bi bi-geo-alt"></i> Pindamonhangaba</span>
+                                <a href="#"
+                                    class="btn-candidatar"><i class="bi bi-send"></i> Candidatar</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Vaga 4 -->
+                    <div class="col-md-6 col-lg-4 vaga-item"
+                        data-texto="TotalEnergies Lubrificantes auxiliar producao industria" data-categoria="industria"
+                        data-tipo="clt" data-esc="medio" data-novo="false">
+                        <div class="vaga-card cat-industria">
+                            <div class="vaga-empresa-row">
+                                <div class="empresa-logo">🛢️</div>
+                                <div>
+                                    <div class="empresa-nome">TotalEnergies</div>
+                                    <div class="empresa-parceira"><i class="bi bi-patch-check-fill me-1"></i>Parceira
+                                        oficial</div>
+                                </div>
+                            </div>
+                            <div class="vaga-titulo">Auxiliar de Produção</div>
+                            <div class="vaga-desc">
+                                Apoio na linha de produção de lubrificantes. Atividades de abastecimento, inspeção
+                                visual e controle de qualidade básico.
+                            </div>
+                            <div class="vaga-tags">
+                                <span class="vaga-tag">CLT</span>
+                                <span class="vaga-tag">Ensino médio</span>
+                                <span class="vaga-tag destaque">Plano de saúde</span>
+                            </div>
+                            <div class="vaga-footer">
+                                <span class="vaga-local"><i class="bi bi-geo-alt"></i> Pindamonhangaba</span>
+                                <a href="#"
+                                    class="btn-candidatar"><i class="bi bi-send"></i> Candidatar</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Vaga 5 -->
+                    <div class="col-md-6 col-lg-4 vaga-item" data-texto="Hitachi Energy recepcionista industria"
+                        data-categoria="industria" data-tipo="clt" data-esc="medio" data-novo="false">
+                        <div class="vaga-card cat-industria">
+                            <div class="vaga-empresa-row">
+                                <div class="empresa-logo">⚡</div>
+                                <div>
+                                    <div class="empresa-nome">Hitachi Energy</div>
+                                    <div class="empresa-parceira"><i class="bi bi-patch-check-fill me-1"></i>Parceira
+                                        oficial</div>
+                                </div>
+                            </div>
+                            <div class="vaga-titulo">Recepcionista Industrial</div>
+                            <div class="vaga-desc">
+                                Atendimento de visitantes, triagem de ligações e suporte administrativo na portaria
+                                principal da unidade.
+                            </div>
+                            <div class="vaga-tags">
+                                <span class="vaga-tag">CLT</span>
+                                <span class="vaga-tag">Ensino médio</span>
+                                <span class="vaga-tag destaque">Benefícios completos</span>
+                            </div>
+                            <div class="vaga-footer">
+                                <span class="vaga-local"><i class="bi bi-geo-alt"></i> Pindamonhangaba</span>
+                                <a href="#"
+                                    class="btn-candidatar"><i class="bi bi-send"></i> Candidatar</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div><!-- /industria -->
+
+
+            <!-- ══ CATEGORIA: COMÉRCIO ══ -->
+            <div class="categoria-bloco" data-categoria="comercio">
+                <div class="categoria-header">
+                    <div class="categoria-icon" style="background:#e8f5e9; color: var(--Pinda-verde);">
+                        <i class="bi bi-shop"></i>
+                    </div>
+                    <div>
+                        <h2 class="categoria-titulo">Comércio</h2>
+                        <p class="categoria-subtitulo">Lojas, supermercados e varejo local</p>
+                    </div>
+                    <span class="categoria-count">4 vagas</span>
+                </div>
+
+                <div class="row g-3">
+
+                    <!-- Vaga 6 -->
+                    <div class="col-md-6 col-lg-4 vaga-item" data-texto="Supermercado Roldão Atendente Caixa comercio"
+                        data-categoria="comercio" data-tipo="clt" data-esc="medio" data-novo="true">
+                        <div class="vaga-card cat-comercio">
+                            <span class="badge-novo">Nova</span>
+                            <div class="vaga-empresa-row">
+                                <div class="empresa-logo">🛒</div>
+                                <div>
+                                    <div class="empresa-nome">Supermercado Pinda</div>
+                                    <div class="empresa-parceira"><i class="bi bi-patch-check-fill me-1"></i>Parceira
+                                        oficial</div>
+                                </div>
+                            </div>
+                            <div class="vaga-titulo">Operador(a) de Caixa</div>
+                            <div class="vaga-desc">
+                                Atendimento ao cliente, passagem de produtos e fechamento de caixa. Turno da manhã ou
+                                tarde disponível.
+                            </div>
+                            <div class="vaga-tags">
+                                <span class="vaga-tag">CLT</span>
+                                <span class="vaga-tag">Ensino médio</span>
+                                <span class="vaga-tag destaque">Turno fixo</span>
+                            </div>
+                            <div class="vaga-footer">
+                                <span class="vaga-local"><i class="bi bi-geo-alt"></i> Centro — Pindamonhangaba</span>
+                                <a href="#"
+                                    class="btn-candidatar"><i class="bi bi-send"></i> Candidatar</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Vaga 7 -->
+                    <div class="col-md-6 col-lg-4 vaga-item"
+                        data-texto="Farmácia Drogaria Atendente balconista comercio" data-categoria="comercio"
+                        data-tipo="clt" data-esc="medio" data-novo="false">
+                        <div class="vaga-card cat-comercio">
+                            <div class="vaga-empresa-row">
+                                <div class="empresa-logo">💊</div>
+                                <div>
+                                    <div class="empresa-nome">Farmácia Preço Certo</div>
+                                    <div class="empresa-parceira"><i class="bi bi-patch-check-fill me-1"></i>Parceira
+                                        oficial</div>
+                                </div>
+                            </div>
+                            <div class="vaga-titulo">Atendente de Farmácia</div>
+                            <div class="vaga-desc">
+                                Atendimento ao público, organização de prateleiras e orientação básica sobre produtos de
+                                venda livre.
+                            </div>
+                            <div class="vaga-tags">
+                                <span class="vaga-tag">CLT</span>
+                                <span class="vaga-tag">Ensino médio</span>
+                            </div>
+                            <div class="vaga-footer">
+                                <span class="vaga-local"><i class="bi bi-geo-alt"></i> Pindamonhangaba</span>
+                                <a href="#"
+                                    class="btn-candidatar"><i class="bi bi-send"></i> Candidatar</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Vaga 8 -->
+                    <div class="col-md-6 col-lg-4 vaga-item" data-texto="Pet Shop Auxiliar vendedor comercio"
+                        data-categoria="comercio" data-tipo="parcial" data-esc="fundamental" data-novo="false">
+                        <div class="vaga-card cat-comercio">
+                            <div class="vaga-empresa-row">
+                                <div class="empresa-logo">🐾</div>
+                                <div>
+                                    <div class="empresa-nome">PetCenter Vale</div>
+                                    <div class="empresa-parceira"><i class="bi bi-patch-check-fill me-1"></i>Parceira
+                                        oficial</div>
+                                </div>
+                            </div>
+                            <div class="vaga-titulo">Auxiliar de Vendas</div>
+                            <div class="vaga-desc">
+                                Atendimento a clientes, organização de produtos e apoio no setor de rações e acessórios
+                                para pets.
+                            </div>
+                            <div class="vaga-tags">
+                                <span class="vaga-tag">Meio período</span>
+                                <span class="vaga-tag">Fund. completo</span>
+                            </div>
+                            <div class="vaga-footer">
+                                <span class="vaga-local"><i class="bi bi-geo-alt"></i> Pindamonhangaba</span>
+                                <a href="#"
+                                    class="btn-candidatar"><i class="bi bi-send"></i> Candidatar</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Vaga 9 -->
+                    <div class="col-md-6 col-lg-4 vaga-item" data-texto="Padaria confeitaria atendente comercio"
+                        data-categoria="comercio" data-tipo="clt" data-esc="fundamental" data-novo="true">
+                        <div class="vaga-card cat-comercio">
+                            <span class="badge-novo">Nova</span>
+                            <div class="vaga-empresa-row">
+                                <div class="empresa-logo">🥖</div>
+                                <div>
+                                    <div class="empresa-nome">Padaria São Benedito</div>
+                                    <div class="empresa-parceira"><i class="bi bi-patch-check-fill me-1"></i>Parceira
+                                        oficial</div>
+                                </div>
+                            </div>
+                            <div class="vaga-titulo">Atendente de Padaria</div>
+                            <div class="vaga-desc">
+                                Atendimento no balcão, caixa e organização de vitrine. Turno da manhã (6h às 12h).
+                            </div>
+                            <div class="vaga-tags">
+                                <span class="vaga-tag">CLT</span>
+                                <span class="vaga-tag">Fund. completo</span>
+                                <span class="vaga-tag destaque">Alimentação no local</span>
+                            </div>
+                            <div class="vaga-footer">
+                                <span class="vaga-local"><i class="bi bi-geo-alt"></i> Centro — Pindamonhangaba</span>
+                                <a href="#"
+                                    class="btn-candidatar"><i class="bi bi-send"></i> Candidatar</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div><!-- /comercio -->
+
+
+            <!-- ══ CATEGORIA: SAÚDE ══ -->
+            <div class="categoria-bloco" data-categoria="saude">
+                <div class="categoria-header">
+                    <div class="categoria-icon" style="background:#fdecea; color: #b22222;">
+                        <i class="bi bi-heart-pulse-fill"></i>
+                    </div>
+                    <div>
+                        <h2 class="categoria-titulo">Saúde</h2>
+                        <p class="categoria-subtitulo">Clínicas, hospitais e farmácias</p>
+                    </div>
+                    <span class="categoria-count">3 vagas</span>
+                </div>
+
+                <div class="row g-3">
+
+                    <!-- Vaga 10 -->
+                    <div class="col-md-6 col-lg-4 vaga-item" data-texto="Hospital recepcionista saude atendimento"
+                        data-categoria="saude" data-tipo="clt" data-esc="medio" data-novo="false">
+                        <div class="vaga-card cat-saude">
+                            <div class="vaga-empresa-row">
+                                <div class="empresa-logo">🏥</div>
+                                <div>
+                                    <div class="empresa-nome">Hospital São Lucas</div>
+                                    <div class="empresa-parceira"><i class="bi bi-patch-check-fill me-1"></i>Parceira
+                                        oficial</div>
+                                </div>
+                            </div>
+                            <div class="vaga-titulo">Recepcionista Hospitalar</div>
+                            <div class="vaga-desc">
+                                Agendamento de consultas, acolhimento de pacientes e preenchimento de fichas.
+                                Atendimento humano e paciente.
+                            </div>
+                            <div class="vaga-tags">
+                                <span class="vaga-tag">CLT</span>
+                                <span class="vaga-tag">Ensino médio</span>
+                                <span class="vaga-tag destaque">Plano de saúde</span>
+                            </div>
+                            <div class="vaga-footer">
+                                <span class="vaga-local"><i class="bi bi-geo-alt"></i> Pindamonhangaba</span>
+                                <a href="#"
+                                    class="btn-candidatar"><i class="bi bi-send"></i> Candidatar</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Vaga 11 -->
+                    <div class="col-md-6 col-lg-4 vaga-item" data-texto="Clinica auxiliar limpeza higienizacao saude"
+                        data-categoria="saude" data-tipo="clt" data-esc="fundamental" data-novo="true">
+                        <div class="vaga-card cat-saude">
+                            <span class="badge-novo">Nova</span>
+                            <div class="vaga-empresa-row">
+                                <div class="empresa-logo">🩺</div>
+                                <div>
+                                    <div class="empresa-nome">Clínica Bem Viver</div>
+                                    <div class="empresa-parceira"><i class="bi bi-patch-check-fill me-1"></i>Parceira
+                                        oficial</div>
+                                </div>
+                            </div>
+                            <div class="vaga-titulo">Auxiliar de Higienização</div>
+                            <div class="vaga-desc">
+                                Limpeza e organização de consultórios e áreas comuns. Turno fixo diurno, sem plantão
+                                noturno.
+                            </div>
+                            <div class="vaga-tags">
+                                <span class="vaga-tag">CLT</span>
+                                <span class="vaga-tag">Fund. completo</span>
+                            </div>
+                            <div class="vaga-footer">
+                                <span class="vaga-local"><i class="bi bi-geo-alt"></i> Pindamonhangaba</span>
+                                <a href="#"
+                                    class="btn-candidatar"><i class="bi bi-send"></i> Candidatar</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Vaga 12 -->
+                    <div class="col-md-6 col-lg-4 vaga-item" data-texto="laboratorio coleta sangue saude auxiliar"
+                        data-categoria="saude" data-tipo="clt" data-esc="medio" data-novo="false">
+                        <div class="vaga-card cat-saude">
+                            <div class="vaga-empresa-row">
+                                <div class="empresa-logo">🔬</div>
+                                <div>
+                                    <div class="empresa-nome">Laboratório Pinda Análises</div>
+                                    <div class="empresa-parceira"><i class="bi bi-patch-check-fill me-1"></i>Parceira
+                                        oficial</div>
+                                </div>
+                            </div>
+                            <div class="vaga-titulo">Auxiliar de Recepção</div>
+                            <div class="vaga-desc">
+                                Recebimento de pacientes, cadastro de exames e orientações sobre preparo para coleta.
+                                Atividade tranquila e organizada.
+                            </div>
+                            <div class="vaga-tags">
+                                <span class="vaga-tag">CLT</span>
+                                <span class="vaga-tag">Ensino médio</span>
+                            </div>
+                            <div class="vaga-footer">
+                                <span class="vaga-local"><i class="bi bi-geo-alt"></i> Pindamonhangaba</span>
+                                <a href="#"
+                                    class="btn-candidatar"><i class="bi bi-send"></i> Candidatar</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div><!-- /saude -->
+
+
+            <!-- ══ CATEGORIA: SERVIÇOS ══ -->
+            <div class="categoria-bloco" data-categoria="servicos">
+                <div class="categoria-header">
+                    <div class="categoria-icon" style="background:#fff8e1; color: #c47c00;">
+                        <i class="bi bi-tools"></i>
+                    </div>
+                    <div>
+                        <h2 class="categoria-titulo">Serviços</h2>
+                        <p class="categoria-subtitulo">Hotelaria, alimentação e manutenção</p>
+                    </div>
+                    <span class="categoria-count">2 vagas</span>
+                </div>
+
+                <div class="row g-3">
+
+                    <!-- Vaga 13 -->
+                    <div class="col-md-6 col-lg-4 vaga-item" data-texto="Hotel recepcionista hospedagem servicos"
+                        data-categoria="servicos" data-tipo="clt" data-esc="medio" data-novo="false">
+                        <div class="vaga-card cat-servicos">
+                            <div class="vaga-empresa-row">
+                                <div class="empresa-logo">🏨</div>
+                                <div>
+                                    <div class="empresa-nome">Hotel Vale Real</div>
+                                    <div class="empresa-parceira"><i class="bi bi-patch-check-fill me-1"></i>Parceira
+                                        oficial</div>
+                                </div>
+                            </div>
+                            <div class="vaga-titulo">Recepcionista de Hotel</div>
+                            <div class="vaga-desc">
+                                Check-in e check-out de hóspedes, atendimento telefônico e orientações sobre a cidade.
+                                Turno manhã.
+                            </div>
+                            <div class="vaga-tags">
+                                <span class="vaga-tag">CLT</span>
+                                <span class="vaga-tag">Ensino médio</span>
+                                <span class="vaga-tag destaque">Uniformes fornecidos</span>
+                            </div>
+                            <div class="vaga-footer">
+                                <span class="vaga-local"><i class="bi bi-geo-alt"></i> Pindamonhangaba</span>
+                                <a href="#"
+                                    class="btn-candidatar"><i class="bi bi-send"></i> Candidatar</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Vaga 14 -->
+                    <div class="col-md-6 col-lg-4 vaga-item"
+                        data-texto="Restaurante cozinheiro ajudante cozinha servicos" data-categoria="servicos"
+                        data-tipo="clt" data-esc="fundamental" data-novo="true">
+                        <div class="vaga-card cat-servicos">
+                            <span class="badge-novo">Nova</span>
+                            <div class="vaga-empresa-row">
+                                <div class="empresa-logo">🍽️</div>
+                                <div>
+                                    <div class="empresa-nome">Restaurante do Vale</div>
+                                    <div class="empresa-parceira"><i class="bi bi-patch-check-fill me-1"></i>Parceira
+                                        oficial</div>
+                                </div>
+                            </div>
+                            <div class="vaga-titulo">Ajudante de Cozinha</div>
+                            <div class="vaga-desc">
+                                Preparo de ingredientes, apoio ao cozinheiro e limpeza da área de trabalho. Refeição
+                                inclusa, turno diurno.
+                            </div>
+                            <div class="vaga-tags">
+                                <span class="vaga-tag">CLT</span>
+                                <span class="vaga-tag">Fund. completo</span>
+                                <span class="vaga-tag destaque">Refeição inclusa</span>
+                            </div>
+                            <div class="vaga-footer">
+                                <span class="vaga-local"><i class="bi bi-geo-alt"></i> Pindamonhangaba</span>
+                                <a href="#"
+                                    class="btn-candidatar"><i class="bi bi-send"></i> Candidatar</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div><!-- /servicos -->
+
+
+            <!-- ══ CATEGORIA: LOGÍSTICA ══ -->
+            <div class="categoria-bloco" data-categoria="logistica">
+                <div class="categoria-header">
+                    <div class="categoria-icon" style="background:#eceff1; color: #455a64;">
+                        <i class="bi bi-truck"></i>
+                    </div>
+                    <div>
+                        <h2 class="categoria-titulo">Logística e Transporte</h2>
+                        <p class="categoria-subtitulo">Estoque, distribuição e entregas</p>
+                    </div>
+                    <span class="categoria-count">2 vagas</span>
+                </div>
+
+                <div class="row g-3">
+
+                    <!-- Vaga 15 -->
+                    <div class="col-md-6 col-lg-4 vaga-item" data-texto="Logistica auxiliar estoque deposito logistica"
+                        data-categoria="logistica" data-tipo="clt" data-esc="fundamental" data-novo="false">
+                        <div class="vaga-card cat-logistica">
+                            <div class="vaga-empresa-row">
+                                <div class="empresa-logo">📦</div>
+                                <div>
+                                    <div class="empresa-nome">Armazém Distribuidora Vale</div>
+                                    <div class="empresa-parceira"><i class="bi bi-patch-check-fill me-1"></i>Parceira
+                                        oficial</div>
+                                </div>
+                            </div>
+                            <div class="vaga-titulo">Auxiliar de Estoque</div>
+                            <div class="vaga-desc">
+                                Organização de mercadorias, conferência de notas fiscais e separação de pedidos.
+                                Trabalho em galpão fechado.
+                            </div>
+                            <div class="vaga-tags">
+                                <span class="vaga-tag">CLT</span>
+                                <span class="vaga-tag">Fund. completo</span>
+                            </div>
+                            <div class="vaga-footer">
+                                <span class="vaga-local"><i class="bi bi-geo-alt"></i> Distrito Industrial —
+                                    Pindamonhangaba</span>
+                                <a href="#"
+                                    class="btn-candidatar"><i class="bi bi-send"></i> Candidatar</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Vaga 16 -->
+                    <div class="col-md-6 col-lg-4 vaga-item" data-texto="Motorista entrega van transporte logistica"
+                        data-categoria="logistica" data-tipo="clt" data-esc="medio" data-novo="false">
+                        <div class="vaga-card cat-logistica">
+                            <div class="vaga-empresa-row">
+                                <div class="empresa-logo">🚚</div>
+                                <div>
+                                    <div class="empresa-nome">Expresso Paraíba Transportes</div>
+                                    <div class="empresa-parceira"><i class="bi bi-patch-check-fill me-1"></i>Parceira
+                                        oficial</div>
+                                </div>
+                            </div>
+                            <div class="vaga-titulo">Motorista de Entregas (Van)</div>
+                            <div class="vaga-desc">
+                                Entrega de mercadorias na cidade e municípios próximos. CNH categoria B exigida. Veículo
+                                fornecido pela empresa.
+                            </div>
+                            <div class="vaga-tags">
+                                <span class="vaga-tag">CLT</span>
+                                <span class="vaga-tag">CNH-B</span>
+                                <span class="vaga-tag destaque">Veículo da empresa</span>
+                            </div>
+                            <div class="vaga-footer">
+                                <span class="vaga-local"><i class="bi bi-geo-alt"></i> Pindamonhangaba</span>
+                                <a href="#"
+                                    class="btn-candidatar"><i class="bi bi-send"></i> Candidatar</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div><!-- /logistica -->
+
+
+            <!-- ══ CATEGORIA: ADMINISTRATIVO ══ -->
+            <div class="categoria-bloco" data-categoria="admin">
+                <div class="categoria-header">
+                    <div class="categoria-icon" style="background:#e8f5e9; color: var(--Pinda-verde-claro);">
+                        <i class="bi bi-clipboard2-check"></i>
+                    </div>
+                    <div>
+                        <h2 class="categoria-titulo">Administrativo</h2>
+                        <p class="categoria-subtitulo">Escritório, secretaria e suporte</p>
+                    </div>
+                    <span class="categoria-count">1 vaga</span>
+                </div>
+
+                <div class="row g-3">
+
+                    <!-- Vaga 17 -->
+                    <div class="col-md-6 col-lg-4 vaga-item"
+                        data-texto="Assistente administrativo secretaria escritorio admin" data-categoria="admin"
+                        data-tipo="clt" data-esc="medio" data-novo="true">
+                        <div class="vaga-card cat-admin">
+                            <span class="badge-novo">Nova</span>
+                            <div class="vaga-empresa-row">
+                                <div class="empresa-logo">🏢</div>
+                                <div>
+                                    <div class="empresa-nome">Grupo Simec do Brasil</div>
+                                    <div class="empresa-parceira"><i class="bi bi-patch-check-fill me-1"></i>Parceira
+                                        oficial</div>
+                                </div>
+                            </div>
+                            <div class="vaga-titulo">Assistente Administrativo</div>
+                            <div class="vaga-desc">
+                                Organização de documentos, controle de agenda e atendimento a fornecedores. Uso básico
+                                de computador (treinamento oferecido).
+                            </div>
+                            <div class="vaga-tags">
+                                <span class="vaga-tag">CLT</span>
+                                <span class="vaga-tag">Ensino médio</span>
+                                <span class="vaga-tag destaque">Treinamento interno</span>
+                            </div>
+                            <div class="vaga-footer">
+                                <span class="vaga-local"><i class="bi bi-geo-alt"></i> Pindamonhangaba</span>
+                                <a href="#"
+                                    class="btn-candidatar"><i class="bi bi-send"></i> Candidatar</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div><!-- /admin -->
+
+        </div>
+    </main>
+
+
+    <!-- ══════════════════════════
+     CTA BANNER
+══════════════════════════ -->
+    <section class="cta-banner">
+        <div class="container text-center position-relative">
+            <span class="page-badge mb-3 d-inline-block" style="background:rgba(255,255,255,0.15); color:#fff;">
+                <i class="bi bi-mortarboard-fill me-1"></i> Ainda sem qualificação?
+            </span>
+            <h2 class="mb-3">Prepare-se antes de se candidatar</h2>
+            <p class="mb-4 mx-auto" style="max-width:500px;">
+                Faça um de nossos cursos gratuitos e chegue às entrevistas com mais confiança e conhecimento.
+            </p>
+            <div class="d-flex flex-wrap justify-content-center gap-3">
+                <a href="cursos.html" class="btn-cta-curso">
+                    <i class="bi bi-mortarboard-fill"></i> Ver Cursos Gratuitos
+                </a>
+                <a href="logar.html" class="btn-cta-outline">
+                    <i class="bi bi-box-arrow-in-right"></i> Entrar no Programa
+                </a>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ══════════════════════════
+     FOOTER
+══════════════════════════ -->
+    <footer id="contato">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-4">
+                    <div class="footer-brand">Elo+ Pinda</div>
+                    <div class="footer-brand-sub">Prefeitura de Pindamonhangaba</div>
+                    <p class="footer-desc">
+                        Uma iniciativa municipal para incluir cidadãos com 40 anos ou mais
+                        no mundo digital, com cursos gratuitos e acesso a oportunidades de
+                        emprego no Vale do Paraíba.
+                    </p>
+                    <div class="mt-3">
+                        <a href="#" class="social-icon"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-whatsapp"></i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-2">
+                    <h6>Links Rápidos</h6>
+                    <a href="index.html" class="footer-link"><i class="bi bi-chevron-right"></i> Início</a>
+                    <a href="cursos.html" class="footer-link"><i class="bi bi-chevron-right"></i> Cursos</a>
+                    <a href="vagas.html" class="footer-link"><i class="bi bi-chevron-right"></i> Vagas</a>
+                    <a href="index.html#sobre" class="footer-link"><i class="bi bi-chevron-right"></i> Sobre o
+                        programa</a>
+                    <a href="logar.html" class="footer-link"><i class="bi bi-chevron-right"></i> Entrar no Programa</a>
+                </div>
+                <div class="col-sm-6 col-lg-3">
+                    <h6>Dúvidas Frequentes</h6>
+                    <a href="#" class="footer-link"><i class="bi bi-question-circle"></i> Como me inscrever?</a>
+                    <a href="#" class="footer-link"><i class="bi bi-question-circle"></i> Os cursos têm custo?</a>
+                    <a href="#" class="footer-link"><i class="bi bi-question-circle"></i> Como funciona o
+                        certificado?</a>
+                    <a href="#" class="footer-link"><i class="bi bi-question-circle"></i> Posso fazer online?</a>
+                    <a href="#" class="footer-link"><i class="bi bi-question-circle"></i> Quem pode participar?</a>
+                </div>
+                <div class="col-lg-3">
+                    <h6>Fale Conosco</h6>
+                    <div class="footer-contact-item">
+                        <i class="bi bi-geo-alt-fill"></i>
+                        <span>Praça Cel. Themudo, s/n — Centro, Pindamonhangaba — SP</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="bi bi-telephone-fill"></i>
+                        <span>(12) 3644-8000</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="bi bi-envelope-fill"></i>
+                        <span>digital40@Pindamonhangaba.sp.gov.br</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="bi bi-clock-fill"></i>
+                        <span>Seg a Sex, das 8h às 17h</span>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="d-flex flex-wrap justify-content-between align-items-center gap-2">
+                    <p class="footer-bottom-text">
+                        © 2026 Prefeitura de Pindamonhangaba. Todos os direitos reservados.
+                    </p>
+                    <div class="footer-bottom-links">
+                        <a href="#">Política de Privacidade</a>
+                        <a href="#">Acessibilidade</a>
+                        <a href="https://www.Pindamonhangaba.sp.gov.br" target="_blank">Portal da Prefeitura</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="js/scroll.js"></script>
+    <script src="js/vagas.js"></script>
+    <script src="js/acessibilidade.js"></script>
+
+    <!-- Modal de Acessibilidade -->
+    <div class="modal fade" id="modalAcessibilidade" tabindex="-1" aria-labelledby="modalAcessibilidadeLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalAcessibilidadeLabel">Acessibilidade</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+          </div>
+          <div class="modal-body">
+            <div id="barra-acessibilidade" role="region" aria-label="Ferramentas de acessibilidade para deficientes visuais">
+              <div class="container">
+                <div class="d-flex align-items-center flex-wrap gap-2 py-1">
+                  <span class="acesso-label d-none d-sm-inline">
+                    <i class="bi bi-eye-fill me-1"></i>Acessibilidade:
+                  </span>
+                  <div class="d-flex align-items-center gap-1" role="group" aria-label="Tamanho da fonte">
+                    <span class="acesso-label">Fonte:</span>
+                    <button class="acesso-btn" id="btn-fonte-menor" onclick="alterarFonte('menor')" aria-label="Diminuir fonte" aria-pressed="false">A−</button>
+                    <button class="acesso-btn ativo" id="btn-fonte-normal" onclick="alterarFonte('normal')" aria-label="Fonte padrão" aria-pressed="true">A</button>
+                    <button class="acesso-btn" id="btn-fonte-maior" onclick="alterarFonte('maior')" aria-label="Aumentar fonte" aria-pressed="false">A+</button>
+                    <button class="acesso-btn" id="btn-fonte-maxima" onclick="alterarFonte('maxima')" aria-label="Fonte máxima" aria-pressed="false">A++</button>
+                  </div>
+                  <span class="acesso-divider d-none d-md-inline-block"></span>
+                  <div class="d-flex align-items-center gap-1" role="group" aria-label="Opções de visão">
+                    <span class="acesso-label d-none d-md-inline">Visão:</span>
+                    <button class="acesso-btn" id="btn-contraste" onclick="toggleContraste()" aria-label="Alto contraste" aria-pressed="false">
+                      <i class="bi bi-circle-half"></i>
+                      <span class="d-none d-sm-inline">Contraste</span>
+                    </button>
+                    <button class="acesso-btn" id="btn-espaco" onclick="toggleEspaco()" aria-label="Espaçamento de texto" aria-pressed="false">
+                      <i class="bi bi-text-paragraph"></i>
+                      <span class="d-none d-sm-inline">Espaçamento</span>
+                    </button>
+                    <button class="acesso-btn" id="btn-foco" onclick="toggleFoco()" aria-label="Destaque de foco para teclado" aria-pressed="false">
+                      <i class="bi bi-keyboard"></i>
+                      <span class="d-none d-md-inline">Foco</span>
+                    </button>
+                  </div>
+                  <span class="acesso-divider d-none d-md-inline-block"></span>
+                  <button class="acesso-btn" id="btn-tts" onclick="togglePainelTTS()" aria-label="Leitura em voz alta" aria-expanded="false" aria-controls="painel-tts">
+                    <i class="bi bi-volume-up-fill"></i>
+                    <span class="d-none d-sm-inline">Voz</span>
+                  </button>
+                  <button class="acesso-btn ms-auto" onclick="resetarTudo()" aria-label="Redefinir acessibilidade" title="Redefinir tudo">
+                    <i class="bi bi-arrow-counterclockwise"></i>
+                    <span class="d-none d-md-inline">Redefinir</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Painel TTS -->
+    <div id="painel-tts" role="dialog" aria-modal="true" aria-label="Leitura em voz alta">
+      <h6><i class="bi bi-volume-up-fill me-1"></i> Leitura em Voz Alta</h6>
+      <p>Ouça o conteúdo da página lido em voz alta.</p>
+      <div class="tts-controles">
+        <button onclick="ttsLerPagina()" aria-label="Ler toda a página">
+          <i class="bi bi-play-fill"></i> Ler página inteira
+        </button>
+        <button onclick="ttsLerSecao()" aria-label="Ler seção atual">
+          <i class="bi bi-skip-forward-fill"></i> Ler seção atual
+        </button>
+        <button onclick="ttsPausar()" id="btn-pausar" aria-label="Pausar ou retomar leitura">
+          <i class="bi bi-pause-fill"></i> Pausar
+        </button>
+        <button onclick="ttsParar()" aria-label="Parar leitura">
+          <i class="bi bi-stop-fill"></i> Parar
+        </button>
+        <div style="border-top:1px solid #ddd; padding-top:.6rem; margin-top:.2rem;">
+          <label for="tts-velocidade" style="font-size:.78rem; color:#555; display:block; margin-bottom:.3rem;">
+            Velocidade da voz:
+          </label>
+          <input type="range" id="tts-velocidade" min="0.5" max="2" step="0.1" value="1" style="width:100%;" aria-label="Velocidade da voz" oninput="ttsAjustarVelocidade(this.value)">
+          <div style="display:flex; justify-content:space-between; font-size:.72rem; color:#888;">
+            <span>Lento</span><span id="tts-vel-label">1.0×</span><span>Rápido</span>
+          </div>
+        </div>
+        <button onclick="togglePainelTTS()" style="background:#f0f0f0 !important; border-color:#ccc !important; color:#333 !important;" aria-label="Fechar painel">
+          <i class="bi bi-x-circle"></i> Fechar
+        </button>
+      </div>
+    </div>
+
+    <!-- Botão flutuante -->
+    <button id="btn-flutuante-acesso" type="button" data-bs-toggle="modal" data-bs-target="#modalAcessibilidade" aria-label="Abrir as ferramentas de acessibilidade" title="Acessibilidade">
+      <i class="bi bi-eye-fill" aria-hidden="true"></i>
+      <span class="d-none d-sm-inline">Acessibilidade</span>
+    </button>
+
+    <!-- Anunciador para leitores de tela -->
+    <div id="aria-anunciador" role="status" aria-live="polite" aria-atomic="true" style="position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden;"></div>
+
+</body>
+
+</html>
+
+
+
+

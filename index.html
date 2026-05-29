@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Elo+ Pinda | Inclusão Digital em Pindamonhangaba</title>
+  <link rel="icon" href="images/logo.png" type="image/png" />
+
+  <!-- Bootstrap 5 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Sans+3:wght@400;500;600&display=swap"
+    rel="stylesheet" />
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="styles/index.css" />
+</head>
+
+<body>
+
+  <!-- Skip link -->
+  <a href="#inicio" class="skip-link">Pular para o conteúdo principal</a>
+
+  <!-- Indicador de leitura ativa -->
+  <div id="tts-status" role="status" aria-live="polite">
+    &#128266; Lendo em voz alta... Pressione ESC para parar.
+  </div>
+
+  <!-- ══════════════════════════
+     NAVBAR
+══════════════════════════ -->
+  <nav class="navbar navbar-expand-lg navbar-custom sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="#inicio">
+        <div class="navbar-brand-wrapper">
+          <img class="brand-logo" src="images/logo.png" alt="Logo Elo+ Pinda" />
+          <div class="brand-text">
+            <span class="brand-title">Elo+ Pinda</span>
+            <span class="brand-subtitle">Prefeitura de Pindamonhangaba</span>
+          </div>
+        </div>
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain"
+        aria-label="Abrir menu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarMain">
+        <ul class="navbar-nav ms-auto align-items-center gap-1">
+          <li class="nav-item">
+            <a class="nav-link active" href="#inicio">Início</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="cursos.html">
+              <i class="bi bi-mortarboard me-1"></i>Cursos
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="vagas.html">
+              <i class="bi bi-briefcase me-1"></i>Vagas
+            </a>
+          </li>
+          <li class="nav-item ms-2">
+            <a class="nav-link btn-nav-cta" href="logar.html">
+              <i class="bi bi-box-arrow-in-right me-1"></i>Entrar no Programa
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- ══════════════════════════
+     HERO
+══════════════════════════ -->
+  <section class="hero" id="inicio">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content container">
+      <span class="hero-badge">
+        <i class="bi bi-stars me-1"></i> Programa Municipal de Empregabilidade 40+
+      </span>
+
+      <h1 class="hero-title">
+         Seu <span>futuro</span> também <br>
+        depende de <span>nós.</span>
+      </h1>
+
+      <p class="hero-desc">
+       Encontre cursos gratuitos para aprimorar sua qualificação para vagas de emprego
+        para quem tem experiência de vida e também para deixar sua marca na cidade.
+      </p>
+
+      <div class="hero-btns">
+        <a href="vagas.html" class="btn-hero-primary">
+          <i class="bi bi-briefcase-fill"></i> Ver Vagas de Emprego
+        </a>
+        <a href="cursos.html" class="btn-hero-secondary">
+          <i class="bi bi-mortarboard-fill"></i> Acessar Cursos
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════
+     STATS STRIP
+══════════════════════════ -->
+  <section class="stats-strip">
+    <div class="container">
+      <div class="row g-3">
+        <div class="col-6 col-md-3">
+          <div class="stat-item py-1">
+            <div class="stat-number">1.200+</div>
+            <div class="stat-label">Pessoas cadastradas</div>
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="stat-item py-1">
+            <div class="stat-number">48</div>
+            <div class="stat-label">Cursos disponíveis</div>
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="stat-item py-1">
+            <div class="stat-number">320</div>
+            <div class="stat-label">Vagas abertas</div>
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="stat-item py-1">
+            <div class="stat-number">87%</div>
+            <div class="stat-label">Taxa de empregabilidade</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════
+     SOBRE / DIFERENCIAIS
+══════════════════════════ -->
+  <section class="section-sobre" id="sobre">
+    <div class="container">
+      <div class="row align-items-center g-5">
+
+        <!-- TEXTO -->
+        <div class="col-lg-5">
+          <span class="section-label">Sobre o programa</span>
+          <h2 class="section-title">
+             De nós para quem<br>construiu este país
+          </h2>
+          <div class="divider-line"></div>
+          <p class="text-secondary" style="font-size:1rem; line-height:1.7;">
+            O <strong>Elo+ Pinda</strong> é uma iniciativa da Prefeitura de
+            Pindamonhangaba para conectar cidadãos com mais de 40 anos ao mercado
+            de trabalho digital, oferecendo qualificação gratuita e acesso direto
+            a oportunidades de emprego na região do Vale do Paraíba.
+          </p>
+          <p class="text-secondary mt-3" style="font-size:0.95rem; line-height:1.65;">
+            Acreditamos que experiência de vida é o maior currículo. Aqui você
+            aprende no seu ritmo, com suporte humano e didática acessível.
+          </p>
+        </div>
+
+        <!-- CARDS -->
+        <div class="col-lg-7">
+          <div class="row g-3">
+            <div class="col-sm-6">
+              <div class="feature-card">
+                <div class="feature-icon"><i class="bi bi-laptop"></i></div>
+                <h5>Cursos Gratuitos</h5>
+                <p>Desde informática básica até redes sociais e ferramentas de escritório, tudo sem custo.</p>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="feature-card" style="border-left-color: var(--Pinda-azul);">
+                <div class="feature-icon" style="background: var(--Pinda-azul);">
+                  <i class="bi bi-briefcase"></i>
+                </div>
+                <h5>Vagas Selecionadas</h5>
+                <p>Empresas parceiras que valorizam perfis sêniores e oferecem condições dignas de trabalho.</p>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="feature-card" style="border-left-color: var(--Pinda-amarelo);">
+                <div class="feature-icon" style="background: var(--Pinda-amarelo);">
+                  <i class="bi bi-people" style="color: var(--Pinda-texto);"></i>
+                </div>
+                <h5>Suporte Personalizado</h5>
+                <p>Tutores dedicados para auxiliar no aprendizado e na busca por recolocação profissional.</p>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="feature-card" style="border-left-color: var(--Pinda-vermelho);">
+                <div class="feature-icon" style="background: var(--Pinda-vermelho);">
+                  <i class="bi bi-award"></i>
+                </div>
+                <h5>Certificado Oficial</h5>
+                <p>Certificados emitidos pela Prefeitura com validade para compor seu currículo profissional.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════
+     CTA BANNER
+══════════════════════════ -->
+  <section class="cta-banner" id="cadastro">
+    <div class="container text-center position-relative">
+      <span class="hero-badge mb-4 d-inline-block" style="background: rgba(255,255,255,0.15); color: #fff;">
+        <i class="bi bi-rocket-takeoff me-1"></i> Comece hoje mesmo
+      </span>
+      <h2 class="mb-3">
+        Pronto para dar o próximo passo?
+      </h2>
+      <p class="mb-4 mx-auto" style="max-width:520px;">
+        Acesse as vagas disponíveis ou comece um curso gratuito agora mesmo.
+        Seu momento é este.
+      </p>
+      <div class="d-flex flex-wrap justify-content-center gap-3">
+        <a href="vagas.html" class="btn-cta-vagas">
+          <i class="bi bi-briefcase-fill"></i> Quero ver Vagas
+        </a>
+        <a href="cursos.html" class="btn-cta-cursos">
+          <i class="bi bi-mortarboard-fill"></i> Quero fazer um Curso
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════
+     FOOTER
+══════════════════════════ -->
+  <footer id="contato">
+    <div class="container">
+      <div class="row g-5">
+
+        <!-- Coluna 1: Marca -->
+        <div class="col-lg-4">
+          <div class="footer-brand">Elo+ Pinda</div>
+          <div class="footer-brand-sub">Prefeitura de Pindamonhangaba</div>
+          <p class="footer-desc">
+            Uma iniciativa municipal para incluir cidadãos com 40 anos ou mais
+            no mundo digital, com cursos gratuitos e acesso a oportunidades de
+            emprego no Vale do Paraíba.
+          </p>
+          <div class="mt-3">
+            <a href="#" class="social-icon"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="social-icon"><i class="bi bi-instagram"></i></a>
+            <a href="#" class="social-icon"><i class="bi bi-whatsapp"></i></a>
+            <a href="#" class="social-icon"><i class="bi bi-youtube"></i></a>
+          </div>
+        </div>
+
+        <!-- Coluna 2: Links -->
+        <div class="col-sm-6 col-lg-2">
+          <h6>Links Rápidos</h6>
+          <a href="#inicio" class="footer-link"><i class="bi bi-chevron-right"></i> Início</a>
+          <a href="cursos.html" class="footer-link"><i class="bi bi-chevron-right"></i> Cursos</a>
+          <a href="vagas.html" class="footer-link"><i class="bi bi-chevron-right"></i> Vagas</a>
+          <a href="#sobre" class="footer-link"><i class="bi bi-chevron-right"></i> Sobre o programa</a>
+          <a href="#cadastro" class="footer-link"><i class="bi bi-chevron-right"></i> Cadastre-se</a>
+        </div>
+
+        <!-- Coluna 3: Dúvidas -->
+        <div class="col-sm-6 col-lg-3">
+          <h6>Dúvidas Frequentes</h6>
+          <a href="#" class="footer-link"><i class="bi bi-question-circle"></i> Como me inscrever?</a>
+          <a href="#" class="footer-link"><i class="bi bi-question-circle"></i> Os cursos têm custo?</a>
+          <a href="#" class="footer-link"><i class="bi bi-question-circle"></i> Como funciona o certificado?</a>
+          <a href="#" class="footer-link"><i class="bi bi-question-circle"></i> Posso fazer online?</a>
+          <a href="#" class="footer-link"><i class="bi bi-question-circle"></i> Quem pode participar?</a>
+        </div>
+
+        <!-- Coluna 4: Contato -->
+        <div class="col-lg-3">
+          <h6>Fale Conosco</h6>
+          <div class="footer-contact-item">
+            <i class="bi bi-geo-alt-fill"></i>
+            <span>Praça Cel. Themudo, s/n — Centro, Pindamonhangaba — SP</span>
+          </div>
+          <div class="footer-contact-item">
+            <i class="bi bi-telephone-fill"></i>
+            <span>(12) 3644-8000</span>
+          </div>
+          <div class="footer-contact-item">
+            <i class="bi bi-envelope-fill"></i>
+            <span>digital40@Pindamonhangaba.sp.gov.br</span>
+          </div>
+          <div class="footer-contact-item">
+            <i class="bi bi-clock-fill"></i>
+            <span>Seg a Sex, das 8h às 17h</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Bottom bar -->
+      <div class="footer-bottom">
+        <div class="d-flex flex-wrap justify-content-between align-items-center gap-2">
+          <p class="footer-bottom-text">
+            © 2026 Prefeitura de Pindamonhangaba. Todos os direitos reservados.
+          </p>
+          <div class="footer-bottom-links">
+            <a href="#">Política de Privacidade</a>
+            <a href="#">Acessibilidade</a>
+            <a href="https://www.Pindamonhangaba.sp.gov.br" target="_blank">Portal da Prefeitura</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Modal de Acessibilidade -->
+  <div class="modal fade" id="modalAcessibilidade" tabindex="-1" aria-labelledby="modalAcessibilidadeLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalAcessibilidadeLabel">Acessibilidade</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+        </div>
+        <div class="modal-body">
+          <div id="barra-acessibilidade" role="region" aria-label="Ferramentas de acessibilidade para deficientes visuais">
+            <div class="container">
+              <div class="d-flex align-items-center flex-wrap gap-2 py-1">
+
+                <span class="acesso-label d-none d-sm-inline">
+                  <i class="bi bi-eye-fill me-1"></i>Acessibilidade:
+                </span>
+
+                <!-- Tamanho de fonte -->
+                <div class="d-flex align-items-center gap-1" role="group" aria-label="Tamanho da fonte">
+                  <span class="acesso-label">Fonte:</span>
+                  <button class="acesso-btn" id="btn-fonte-menor" onclick="alterarFonte('menor')" aria-label="Diminuir fonte"
+                    aria-pressed="false">A−</button>
+                  <button class="acesso-btn ativo" id="btn-fonte-normal" onclick="alterarFonte('normal')"
+                    aria-label="Fonte padrão" aria-pressed="true">A</button>
+                  <button class="acesso-btn" id="btn-fonte-maior" onclick="alterarFonte('maior')" aria-label="Aumentar fonte"
+                    aria-pressed="false">A+</button>
+                  <button class="acesso-btn" id="btn-fonte-maxima" onclick="alterarFonte('maxima')" aria-label="Fonte máxima"
+                    aria-pressed="false">A++</button>
+                </div>
+
+                <span class="acesso-divider d-none d-md-inline-block"></span>
+
+                <!-- Visão -->
+                <div class="d-flex align-items-center gap-1" role="group" aria-label="Opções de visão">
+                  <span class="acesso-label d-none d-md-inline">Visão:</span>
+                  <button class="acesso-btn" id="btn-contraste" onclick="toggleContraste()" aria-label="Alto contraste"
+                    aria-pressed="false">
+                    <i class="bi bi-circle-half"></i>
+                    <span class="d-none d-sm-inline">Contraste</span>
+                  </button>
+                  <button class="acesso-btn" id="btn-espaco" onclick="toggleEspaco()" aria-label="Espaçamento de texto"
+                    aria-pressed="false">
+                    <i class="bi bi-text-paragraph"></i>
+                    <span class="d-none d-sm-inline">Espaçamento</span>
+                  </button>
+                  <button class="acesso-btn" id="btn-foco" onclick="toggleFoco()" aria-label="Destaque de foco para teclado"
+                    aria-pressed="false">
+                    <i class="bi bi-keyboard"></i>
+                    <span class="d-none d-sm-inline">Foco</span>
+                  </button>
+                </div>
+
+                <span class="acesso-divider d-none d-md-inline-block"></span>
+
+                <!-- Voz -->
+                <button class="acesso-btn" id="btn-tts" onclick="togglePainelTTS()" aria-label="Leitura em voz alta"
+                  aria-expanded="false" aria-controls="painel-tts">
+                  <i class="bi bi-volume-up-fill"></i>
+                  <span class="d-none d-sm-inline">Voz</span>
+                </button>
+
+                <!-- Reset -->
+                <button class="acesso-btn ms-auto" onclick="resetarTudo()" aria-label="Redefinir acessibilidade"
+                  title="Redefinir tudo">
+                  <i class="bi bi-arrow-counterclockwise"></i>
+                  <span class="d-none d-md-inline">Redefinir</span>
+                </button>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Painel TTS -->
+  <div id="painel-tts" role="dialog" aria-modal="true" aria-label="Leitura em voz alta">
+    <h6><i class="bi bi-volume-up-fill me-1"></i> Leitura em Voz Alta</h6>
+    <p>Ouça o conteúdo da página lido em voz alta.</p>
+    <div class="tts-controles">
+      <button onclick="ttsLerPagina()" aria-label="Ler toda a página">
+        <i class="bi bi-play-fill"></i> Ler página inteira
+      </button>
+      <button onclick="ttsLerSecao()" aria-label="Ler seção atual">
+        <i class="bi bi-skip-forward-fill"></i> Ler seção atual
+      </button>
+      <button onclick="ttsPausar()" id="btn-pausar" aria-label="Pausar ou retomar leitura">
+        <i class="bi bi-pause-fill"></i> Pausar
+      </button>
+      <button onclick="ttsParar()" aria-label="Parar leitura">
+        <i class="bi bi-stop-fill"></i> Parar
+      </button>
+      <div style="border-top:1px solid #ddd; padding-top:.6rem; margin-top:.2rem;">
+        <label for="tts-velocidade" style="font-size:.78rem; color:#555; display:block; margin-bottom:.3rem;">
+          Velocidade da voz:
+        </label>
+        <input type="range" id="tts-velocidade" min="0.5" max="2" step="0.1" value="1" style="width:100%;"
+          aria-label="Velocidade da voz" oninput="ttsAjustarVelocidade(this.value)">
+        <div style="display:flex; justify-content:space-between; font-size:.72rem; color:#888;">
+          <span>Lento</span><span id="tts-vel-label">1.0×</span><span>Rápido</span>
+        </div>
+      </div>
+      <button onclick="togglePainelTTS()"
+        style="background:#f0f0f0 !important; border-color:#ccc !important; color:#333 !important;"
+        aria-label="Fechar painel">
+        <i class="bi bi-x-circle"></i> Fechar
+      </button>
+    </div>
+  </div>
+
+  <!-- Botão flutuante -->
+  <button id="btn-flutuante-acesso" type="button" data-bs-toggle="modal" data-bs-target="#modalAcessibilidade"
+    aria-label="Abrir as ferramentas de acessibilidade" title="Acessibilidade">
+    <i class="bi bi-eye-fill" aria-hidden="true"></i>
+    <span class="d-none d-sm-inline">Acessibilidade</span>
+  </button>
+
+  <!-- Anunciador para leitores de tela -->
+  <div id="aria-anunciador" role="status" aria-live="polite" aria-atomic="true"
+    style="position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden;"></div>
+
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Scroll suave -->
+  <script src="js/scroll.js"></script>
+  <script src="js/acessibilidade.js"></script>
+
+</body>
+
+</html>
